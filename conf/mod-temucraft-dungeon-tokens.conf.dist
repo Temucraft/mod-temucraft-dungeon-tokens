@@ -1,0 +1,51 @@
+[worldserver]
+
+########################################
+# mod-temucraft-dungeon-tokens
+########################################
+#
+#    Temucraft.DungeonTokens.Enable
+#        Description: Gear-Up Tokens (normal dungeons) and Transmog Tokens (heroic dungeons), account-bound, for every
+#                     boss killed and more for finishing the dungeon; spent at the Token Quartermaster (.tokens or NPC
+#                     610010).
+#        Default:     1
+#
+#    Temucraft.DungeonTokens.GearToken / TransmogToken
+#        Description: Item entries of the two tokens.
+#        Default:     610001 / 610002
+#
+#    Temucraft.DungeonTokens.PerBoss
+#        Description: "level:tokens" steps: tokens per boss for a player of that level or higher.
+#        Default:     "1:1 20:2 40:3 60:4 70:5"
+#
+#    Temucraft.DungeonTokens.FinishMultiplier
+#        Description: The dungeon's last boss also gives PerBoss x this (the completion reward). 0 = none.
+#        Default:     3
+#
+#    Temucraft.DungeonTokens.GearCost
+#        Description: "level:cost" steps: what one piece of gear costs at each bracket; the gear on offer is that of
+#                     the player's bracket (from its start level up to the player's level) that they can use.
+#        Default:     "1:5 20:8 40:12 60:16 70:20"
+#
+#    Temucraft.DungeonTokens.TransmogCost
+#        Description: Transmog Tokens per look: any dungeon boss item up to your level, soulbound, to keep for
+#                     transmogrification.
+#        Default:     5
+#
+#    Temucraft.DungeonTokens.MinQuality
+#        Description: Lowest item quality on offer (2 uncommon, 3 rare, 4 epic).
+#        Default:     2
+#
+#    Temucraft.DungeonTokens.Raids
+#        Description: Raid bosses give tokens too (no completion reward).
+#        Default:     0
+
+Temucraft.DungeonTokens.Enable = 1
+Temucraft.DungeonTokens.GearToken = 610001
+Temucraft.DungeonTokens.TransmogToken = 610002
+Temucraft.DungeonTokens.PerBoss = "1:1 20:2 40:3 60:4 70:5"
+Temucraft.DungeonTokens.FinishMultiplier = 3
+Temucraft.DungeonTokens.GearCost = "1:5 20:8 40:12 60:16 70:20"
+Temucraft.DungeonTokens.TransmogCost = 5
+Temucraft.DungeonTokens.MinQuality = 2
+Temucraft.DungeonTokens.Raids = 0
