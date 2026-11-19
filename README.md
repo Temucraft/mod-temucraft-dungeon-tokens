@@ -20,3 +20,5 @@ tables (normal and heroic, one reference deep). A hand-made list in `mod_temucra
 
 Copy the module into `modules/`, re-run CMake and build. The world SQL adds the tokens (610001, 610002), the
 quartermaster (610010), the optional shop table and the texts.
+
+Part of the Temucraft modules for AzerothCore 3.3.5a.
