@@ -9,7 +9,7 @@
 // - Gear-Up Tokens from normal dungeons, Transmog Tokens from heroics: for every boss killed and more for finishing the
 //   dungeon (its last boss), more at higher level brackets. Both are account-bound items, so they can be mailed to
 //   any of your characters.
-// - The Token Quartermaster (.tokens, or the NPC) sells dungeon boss loot: with Gear-Up Tokens the gear of your level
+// - The Token Quartermaster (.temucraft tokens, or the NPC) sells dungeon boss loot: with Gear-Up Tokens the gear of your level
 //   bracket that you can use (pricier at higher brackets), with Transmog Tokens any dungeon boss item up to your level
 //   as a look to keep (soulbound, for transmogrification).
 // Bosses and their loot come from instance_encounters and the loot tables; a shop list of your own can replace them
@@ -465,7 +465,7 @@ public:
     }
 };
 
-// .tokens: the same shop anywhere (gossip from the player)
+// .temucraft tokens: the same shop anywhere (gossip from the player)
 class TemucraftDungeonTokensCommands : public CommandScript
 {
 public:
@@ -473,7 +473,7 @@ public:
 
     ChatCommandTable GetCommands() const override
     {
-        static ChatCommandTable table = { { "tokens", HandleTokens, SEC_PLAYER, Console::No } };
+        static ChatCommandTable table = { { "temucraft tokens", HandleTokens, 102350, Console::No } };
         return table;
     }
 
@@ -485,7 +485,7 @@ public:
     }
 };
 
-// gossip opened on the player (.tokens) comes back here
+// gossip opened on the player (.temucraft tokens) comes back here
 class TemucraftDungeonTokensGossip : public PlayerScript
 {
 public:

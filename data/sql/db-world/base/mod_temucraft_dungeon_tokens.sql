@@ -7,9 +7,9 @@ DELETE FROM `item_template` WHERE `entry` IN (@GearToken, @TransmogToken);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `Flags`, `BuyCount`, `BuyPrice`, `SellPrice`,
     `InventoryType`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `description`, `Material`, `VerifiedBuild`) VALUES
 (@GearToken, 10, 0, 'Gear-Up Token', 40753, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
-    'Earned in normal dungeons. Trade for gear of your level at the Token Quartermaster (.tokens). Account-bound.', -1, -1811),
+    'Earned in normal dungeons. Trade for gear of your level at the Token Quartermaster (.temucraft tokens). Account-bound.', -1, -1811),
 (@TransmogToken, 10, 0, 'Transmog Token', 62232, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
-    'Earned in heroic dungeons. Trade for dungeon looks at the Token Quartermaster (.tokens). Account-bound.', -1, -1811);
+    'Earned in heroic dungeons. Trade for dungeon looks at the Token Quartermaster (.temucraft tokens). Account-bound.', -1, -1811);
 
 DELETE FROM `creature_template` WHERE `entry` = @Quartermaster;
 INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlevel`, `faction`, `npcflag`, `unit_class`, `unit_flags`, `type`, `ScriptName`, `VerifiedBuild`) VALUES

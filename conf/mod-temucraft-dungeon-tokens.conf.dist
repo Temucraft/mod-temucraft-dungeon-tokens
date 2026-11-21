@@ -6,7 +6,7 @@
 #
 #    Temucraft.DungeonTokens.Enable
 #        Description: Gear-Up Tokens (normal dungeons) and Transmog Tokens (heroic dungeons), account-bound, for every
-#                     boss killed and more for finishing the dungeon; spent at the Token Quartermaster (.tokens or NPC
+#                     boss killed and more for finishing the dungeon; spent at the Token Quartermaster (.temucraft tokens or NPC
 #                     610010).
 #        Default:     1
 #

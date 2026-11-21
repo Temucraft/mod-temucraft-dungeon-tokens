@@ -6,7 +6,7 @@ Two dungeon currencies, only for gear and looks.
   boss below level 20, up to 5 from level 70), and the dungeon's last boss gives three times that again for finishing
   it. Everyone in the group inside the dungeon gets them; full bags send them by mail.
 - Both are **account-bound** (heirloom quality): mail them to any of your characters.
-- The **Token Quartermaster** (`.tokens` anywhere, or NPC 610010 for your cities: `.npc add 610010`) sells dungeon boss
+- The **Token Quartermaster** (`.temucraft tokens` anywhere, or NPC 610010 for your cities: `.npc add 610010`) sells dungeon boss
   loot by slot:
   - Gear-Up Tokens: the gear of your level bracket you can use (bosses' uncommon to epic drops); a piece costs
     more at higher brackets (5 below 20 up to 20 from 70).
