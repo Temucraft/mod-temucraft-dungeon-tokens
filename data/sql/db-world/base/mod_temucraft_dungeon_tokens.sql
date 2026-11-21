@@ -1,19 +1,22 @@
 -- mod-temucraft-dungeon-tokens: the two tokens (account-bound: heirloom quality + bind-to-account flag), the
 -- quartermaster, an optional hand-made shop list and the texts.
-DELETE FROM `item_template` WHERE `entry` IN (610001, 610002);
+SET @GearToken := 610001;
+SET @TransmogToken := 610002;
+SET @Quartermaster := 610010;
+DELETE FROM `item_template` WHERE `entry` IN (@GearToken, @TransmogToken);
 INSERT INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `Flags`, `BuyCount`, `BuyPrice`, `SellPrice`,
     `InventoryType`, `ItemLevel`, `RequiredLevel`, `maxcount`, `stackable`, `bonding`, `description`, `Material`, `VerifiedBuild`) VALUES
-(610001, 10, 0, 'Gear-Up Token', 40753, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
+(@GearToken, 10, 0, 'Gear-Up Token', 40753, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
     'Earned in normal dungeons. Trade for gear of your level at the Token Quartermaster (.tokens). Account-bound.', -1, -1811),
-(610002, 10, 0, 'Transmog Token', 62232, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
+(@TransmogToken, 10, 0, 'Transmog Token', 62232, 7, 134217728, 1, 0, 0, 0, 1, 0, 0, 2000, 1,
     'Earned in heroic dungeons. Trade for dungeon looks at the Token Quartermaster (.tokens). Account-bound.', -1, -1811);
 
-DELETE FROM `creature_template` WHERE `entry` = 610010;
+DELETE FROM `creature_template` WHERE `entry` = @Quartermaster;
 INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlevel`, `faction`, `npcflag`, `unit_class`, `unit_flags`, `type`, `ScriptName`, `VerifiedBuild`) VALUES
-(610010, 'Token Quartermaster', 'Dungeon Tokens', 80, 80, 35, 1, 1, 2, 7, 'npc_temucraft_token_quartermaster', -1811);
-DELETE FROM `creature_template_model` WHERE `CreatureID` = 610010;
+(@Quartermaster, 'Token Quartermaster', 'Dungeon Tokens', 80, 80, 35, 1, 1, 2, 7, 'npc_temucraft_token_quartermaster', -1811);
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Quartermaster;
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
-(610010, 0, 28131, 1, 1, -1811);
+(@Quartermaster, 0, 28131, 1, 1, 0);
 
 -- Hand-made shop (optional): rows here replace the automatic list of dungeon boss loot. token 1 = Gear-Up, 2 = Transmog.
 CREATE TABLE IF NOT EXISTS `mod_temucraft_token_shop` (
