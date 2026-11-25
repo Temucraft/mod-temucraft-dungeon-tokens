@@ -234,7 +234,7 @@ namespace
                 item->SaveToDB(trans);
                 draft.AddItem(item);
             }
-            draft.SendMailTo(trans, MailReceiver(p), MailSender(MAIL_NORMAL, 0, MAIL_STATIONERY_GM));
+            draft.SendMailTo(trans, MailReceiver(p), MailSender(MAIL_NORMAL, 0, MAIL_STATIONERY_DEFAULT));
             CharacterDatabase.CommitTransaction(trans);
             ChatHandler(p->GetSession()).SendSysMessage(Say(p, T_FULL, "Your bags were full: the tokens are in your mailbox."));
             return;
