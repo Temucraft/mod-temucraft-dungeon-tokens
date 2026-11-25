@@ -39,6 +39,11 @@
 #    Temucraft.DungeonTokens.Raids
 #        Description: Raid bosses give tokens too (no completion reward).
 #        Default:     0
+#
+#    Temucraft.DungeonTokens.Quartermaster
+#        Description: Creature entry of the Token Quartermaster NPC (must match the creature_template row in this
+#                     module's SQL).
+#        Default:     610010
 
 Temucraft.DungeonTokens.Enable = 1
 Temucraft.DungeonTokens.GearToken = 610001
@@ -49,3 +54,5 @@ Temucraft.DungeonTokens.GearCost = "1:5 20:8 40:12 60:16 70:20"
 Temucraft.DungeonTokens.TransmogCost = 5
 Temucraft.DungeonTokens.MinQuality = 2
 Temucraft.DungeonTokens.Raids = 0
+Temucraft.DungeonTokens.Quartermaster = 610010
+

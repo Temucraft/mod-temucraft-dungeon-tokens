@@ -69,7 +69,23 @@ namespace
     std::unordered_map<uint32, Boss> bosses;               // creature entry -> boss (5-player dungeons)
     std::unordered_set<uint32> raidBosses;                 // when raids give tokens too
     std::vector<uint32> gearItems, lookItems;              // shop lists (item entries)
-    std::unordered_set<ObjectGuid> rewarded;               // boss kills already paid out
+    // Boss kills already paid out, kept on the boss's own Map (Map::CustomData): every instance copy numbers its
+    // creatures from 1, so the same boss in two copies has the same ObjectGuid. The data goes away with the map, and a
+    // map's kill hooks only run on that map's update thread, so no lock is needed.
+    struct PaidBosses : DataMap::Base
+    {
+        std::unordered_set<ObjectGuid::LowType> spawns;    // DB spawns (spawn id)
+        std::unordered_set<ObjectGuid> summons;            // summoned bosses (no spawn id)
+    };
+    constexpr char const* PAID_KEY = "temucraft_dungeon_tokens_paid";
+
+    bool MarkPaid(Map* map, Creature* boss)
+    {
+        PaidBosses* paid = map->CustomData.GetDefault<PaidBosses>(PAID_KEY);
+        if (ObjectGuid::LowType const spawn = boss->GetSpawnId())
+            return paid->spawns.insert(spawn).second;
+        return paid->summons.insert(boss->GetGUID()).second;
+    }
 
     std::vector<std::pair<uint32, uint32>> ParseSteps(std::string text)
     {
@@ -242,7 +258,8 @@ namespace
         auto itr = bosses.find(entry);
         if (raid ? (!settings.raids || !raidBosses.count(entry)) : itr == bosses.end())
             return;
-        if (!rewarded.insert(boss->GetGUID()).second)
+        if (!MarkPaid(map, boss))
+
             return;
         bool const heroic = map->GetDifficulty() != DUNGEON_DIFFICULTY_NORMAL;
         uint32 const token = heroic ? settings.lookToken : settings.gearToken;
